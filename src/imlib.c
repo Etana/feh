@@ -477,6 +477,9 @@ int feh_load_image(Imlib_Image * im, feh_file * file)
 		gib_imlib_image_orientate(*im, 3);
 #endif
 
+	if (opt.random_mirror && random() % 2) {
+		gib_imlib_image_flip_horizontal(*im);
+	}
 	D(("Loaded ok\n"));
 	return(1);
 }
