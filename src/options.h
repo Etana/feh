@@ -107,6 +107,7 @@ struct __fehoptions {
 	char *index_info;
 
 	int force_aliasing;
+	int random_mirror;
 	int thumb_w;
 	int thumb_h;
 	int limit_w;
