@@ -109,6 +109,7 @@ struct __fehoptions {
 	int force_aliasing;
 	int tap_zones;
 	int random_mirror;
+	int fit_rotate;
 	int thumb_w;
 	int thumb_h;
 	int limit_w;

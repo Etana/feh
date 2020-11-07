@@ -439,6 +439,7 @@ static void feh_parse_option_array(int argc, char **argv, int finalrun)
 		{"no-conversion-cache", 0, 0, OPTION_no_conversion_cache},
 		{"window-id", 1, 0, OPTION_window_id},
 		{"random-mirror", 0, 0, 701},
+		{"fit-rotate", 0, 0, 702},
 		{0, 0, 0, 0}
 	};
 	int optch = 0, cmdx = 0;
@@ -862,6 +863,9 @@ static void feh_parse_option_array(int argc, char **argv, int finalrun)
 			}
 		case 701:
 			opt.random_mirror = 1;
+			break;
+		case 702:
+			opt.fit_rotate = 1;
 			break;
 		default:
 			break;

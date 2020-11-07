@@ -480,6 +480,20 @@ int feh_load_image(Imlib_Image * im, feh_file * file)
 	if (opt.random_mirror && random() % 2) {
 		gib_imlib_image_flip_horizontal(*im);
 	}
+
+	unsigned int im_w, im_h, side, reverse_side;
+	if ((opt.geom_flags & WidthValue) && (opt.geom_flags & HeightValue) && opt.fit_rotate) {
+		im_w = gib_imlib_image_get_width(*im);
+		im_h = gib_imlib_image_get_height(*im);
+		side = opt.geom_w * im_h / im_w;
+		side = side < opt.geom_h ? side : opt.geom_h;
+		reverse_side = opt.geom_h * im_h / im_w;
+		reverse_side = reverse_side < opt.geom_w ? reverse_side : opt.geom_w;
+		if (reverse_side > side) {
+			gib_imlib_image_orientate(*im, 1);
+		}
+	}
+
 	D(("Loaded ok\n"));
 	return(1);
 }
